@@ -391,20 +391,20 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/%E5%89%8D%E7%AB%AF/" title="前端: 1">
+                <a href="/tags/%E5%89%8D%E7%AB%AF/" title="前端: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="前端" style="background-color: #F9EBEA;">前端
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/web/" title="web: 1">
+                <a href="/tags/web/" title="web: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             data-tagname="web" style="background-color: #F5EEF8;">web
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -421,10 +421,41 @@
             
             <div class="article tag-post col s12 m6 l4" data-tags="前端, web" data-aos="fade-up">
                 <div class="card">
-                    <a href="/2018/09/07/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/">
+                    <a href="/2018/09/09/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/">
                         <div class="card-image tag-image">
                             
-                            <img src="/source/images/1.jpg" class="responsive-img" alt="Html基础语法">
+                            <img src="/images/4.jpg" class="responsive-img" alt="Html基础语法">
+                            
+                            <span class="card-title">Html基础语法</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="前端, web" data-aos="fade-up">
+                <div class="card">
+                    <a href="/2018/09/07/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%20copy/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/images/0.jpg" class="responsive-img" alt="Html基础语法">
                             
                             <span class="card-title">Html基础语法</span>
                         </div>
@@ -460,15 +491,11 @@
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            
-                <span id="year">2019-2022</span>
-            
+                <span id="year"></span>
             <a href="/about" target="_blank">Summer</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
@@ -490,6 +517,62 @@
             <br>
 
             <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "6";
+                        var startDate = "28";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站勉强已运行 '+diffYears+'年' + diffDays + ' 天'+todayHour+'小时'+todayMinute+'分钟'+todaySecond+'秒';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站勉强已运行 '+diffYears+'年' + diffDays + ' 天'+todayHour+'小时'+todayMinute+'分钟'+todaySecond+'秒';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    setInterval(()=>{
+                        calcSiteTime();
+                    },1000)
+                </script>
             
             <br>
             
@@ -680,12 +763,12 @@ $(function () {
         document.addEventListener('visibilitychange', function () {
             if (document.hidden) {
                 $('[rel="icon"]').attr('url', "../source/logo.png");
-                document.title = '我相信你还会回来的！';
+                document.title = 'Σ(っ °Д °;)っ我相信你还会回来的！';
                 clearTimeout(titleTime);
             }
             else {
                 $('[rel="icon"]').attr('url', "../source/logo.png");
-                document.title = '哈哈，我就知道！' + OriginTitle;
+                document.title = 'φ(゜▽゜*)♪，我就知道！' + OriginTitle;
                 titleTime = setTimeout(function () {
                     document.title = OriginTitle;
                 }, 2000);
@@ -696,11 +779,28 @@ $(function () {
     
 
     
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
 
     <!-- 雪花特效 -->
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
